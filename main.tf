@@ -16,12 +16,17 @@ resource "tfe_workspace" "managed" {
   name         = var.name
   organization = var.organization
 
-  auto_apply            = var.auto_apply
-  file_triggers_enabled = var.file_triggers_enabled
-  queue_all_runs        = var.queue_all_runs
-  ssh_key_id            = var.ssh_key_id
-  terraform_version     = var.terraform_version
-  trigger_prefixes      = var.trigger_prefixes
+  auto_apply                = var.auto_apply
+  file_triggers_enabled     = var.file_triggers_enabled
+  queue_all_runs            = var.queue_all_runs
+  ssh_key_id                = var.ssh_key_id
+  terraform_version         = var.terraform_version
+  trigger_prefixes          = var.trigger_prefixes
+
+  # Optional
+  global_remote_state       = var.global_remote_state
+  remote_state_consumer_ids = var.remote_state_consumer_ids
+  execution_mode            = var.execution_mode
 
   dynamic "vcs_repo" {
     for_each = lookup(var.vcs_repo, "identifier", "void") == "void" ? [] : [var.vcs_repo]
@@ -51,7 +56,7 @@ resource "tfe_notification_configuration" "managed" {
   token            = lookup(each.value.configuration, "token", null)
   triggers         = each.value.triggers
   url              = each.value.configuration["url"]
-  workspace_id     = tfe_workspace.managed.external_id
+  workspace_id     = tfe_workspace.managed.id
 }
 
 resource "tfe_variable" "environment" {

@@ -19,5 +19,5 @@ output "id" {
 
 output "external_id" {
   description = "The workspace's opaque external ID, which looks like `ws-<RANDOM STRING>`"
-  value       = tfe_workspace.managed.external_id
+  value       = tfe_workspace.managed.id
 }

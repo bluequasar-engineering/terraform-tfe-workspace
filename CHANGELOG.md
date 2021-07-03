@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [2.1.0] - 2021-07-02
+- Adds new optional configurations: global_remote_state, remote_state_consumer_ids, execution_mode
+- Fixes the external_id deprecation in favor of id.
+## [2.0.1] - 2021-01-22
+- Fixes the workspace_external_id deprecation in favor of workspace_id.
+
 ## [2.0.0] - 2019-10-17
 
 - do not decode workspace variable values - expect strings

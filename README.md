@@ -1,6 +1,8 @@
 # Terraform Cloud Workspace
 
-This module provisions a Terraform Cloud / Terraform Enterprise workspace
+This module provisions a Terraform Cloud / Terraform Enterprise workspace.
+
+_Note: This is ultimately a fork of [nephosolution's](https://github.com/nephosolutions/terraform-tfe-workspace) workspace [module](https://registry.terraform.io/modules/nephosolutions/workspace/tfe/latest) which has since been deprecated and non-functional due to changes to leveraged resources. However, additional functionality from the latest tfe provider has been incorporated since the fork._
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
